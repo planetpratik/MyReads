@@ -13,7 +13,6 @@ const ShelfCompartment = (props) => {
                         <Book
                             key={book.id}
                             book={book}
-                            books={books}
                             onChangeShelf={onChangeShelf}
                         />
                     ))}
