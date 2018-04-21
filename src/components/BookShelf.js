@@ -37,14 +37,18 @@ class BookShelf extends Component {
                     <div>
                         { compartments.map( (compartment,index) => {
                             const compartmentBooks =this.state.books.filter( (book) =>
-                               book.shelf===compartment.type
-                            )
+                            book.shelf===compartment.type
+                         )
                             return(
-                                <ShelfCompartment
-                                   books={compartmentBooks}
-                                   compartmentsList={compartments}
-                                   onChangeShelf={this.onChangeShelf}
-                                />
+                                <div className="bookshelf" key={index}>
+                                    <h2 className="bookshelf-title">{compartment.title}</h2>
+                                        <ShelfCompartment
+                                            key={index}
+                                            books={compartmentBooks}
+                                            compartmentsList={compartments}
+                                            onChangeShelf={this.onChangeShelf}
+                                        />
+                                </div>
                             )
                         })}
                     </div>
