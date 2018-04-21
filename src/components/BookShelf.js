@@ -6,7 +6,7 @@ class BookShelf extends Component {
 
     // As shelf of the book may change over time, books are stored in state rather than in prop.
     // This is single component above all components that needs state in hierarchy.
-    // Hence our state should live in this component. It's passed down to childrens as a prop.
+    // Hence our state should live in this component. It's passed down to children as a prop.
     state = {
         books: []
     }
@@ -21,8 +21,16 @@ class BookShelf extends Component {
     }
 
     // Handler function for changing book shelf
-    onChangeShelf = () => {
-
+    onChangeShelf = (book, newShelf) => {
+        BooksAPI.update(book,newShelf).then((result) =>{
+            // Change the shelf property of the book object to new Shelf.
+            book.shelf = newShelf
+            //  Get the previous state book array without current book & add it to the new updated books array
+            var updatedBooks = this.state.books.filter((resultBook) =>resultBook.id !== book.id)
+            updatedBooks.push(book)
+            // Set the new state with Updated Books array
+            this.setState({books: updatedBooks})
+        })
     }
 
     render() {
