@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import * as BooksAPI from '../utils/BooksAPI'
 import ShelfCompartment from './ShelfCompartment'
+import AddBook from './AddBook'
 
 class BookShelf extends Component {
 
@@ -23,6 +24,7 @@ class BookShelf extends Component {
     // Handler function for changing book shelf
     onChangeShelf = (book, newShelf) => {
         BooksAPI.update(book,newShelf).then((result) =>{
+            console.log('Update response', result)
             // Change the shelf property of the book object to new Shelf.
             book.shelf = newShelf
             //  Get the previous state book array without current book & add it to the new updated books array
@@ -40,6 +42,7 @@ class BookShelf extends Component {
             {type: 'read', title: 'Read'}
         ]
         return(
+            <div>
             <div className='list-books-content'>
                 { this.state.books.length > 0 &&
                     <div>
@@ -62,8 +65,11 @@ class BookShelf extends Component {
                     </div>
                 }
             </div>
+            <AddBook
+                currentBooks={this.state.books}
+            />
+            </div>
         )
     }
 }
-
 export default BookShelf
