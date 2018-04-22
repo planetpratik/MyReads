@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
 html, body, .root {
   height: 100%;
 }
 body {
+  font-family: 'Raleway', sans-serif;
   line-height: 1.5;
 }
 body, .app {
@@ -12,7 +14,8 @@ body, .app {
 
 .list-books-title {
   padding: 10px 0;
-  background: #2e7c31;
+  /*background: #2e7c31; */
+  background: linear-gradient(30deg, rgba(255,139,0,1) 0%, rgba(16,109,196,1) 51%, rgba(159,53,135,1) 100%);
   text-align: center;
 }
 .list-books-title h1 {
@@ -53,7 +56,8 @@ body, .app {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: #2e7d32;
+  /*background: #2e7d32;*/
+  background: #9f3587;
   background-image: url('./icons/add.svg');
   background-repeat: no-repeat;
   background-position: center;
