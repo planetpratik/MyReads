@@ -66,8 +66,8 @@ class SearchPage extends  Component {
     }
 
    render() {
-       const {books,searchResult,hasError} = this.state
-       console.log('initialbooks',books)
+       const searchResult = this.state.searchResult
+       const hasError = this.state.hasError
        return(
         <div className="search-books">
             <div className="search-books-bar">
